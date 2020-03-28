@@ -55,7 +55,7 @@ int	key_control(int key, t_mx *mx)
 		mxfree(&mx);
 		exit(EXIT_SUCCESS);
 	}
-	else if (key >= LEFT && key <= DOWN)
+	else if (key >= LEFT && key <= UP)
 		movemx(key, mx);
 	else if (key == PLUS || key == MINUS)
 		zoommx(key, mx);
