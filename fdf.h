@@ -29,6 +29,7 @@
 # define Z_DOWN 43
 # define DARK 2
 # define LIGHT 37
+# define PROJ 34
 
 typedef struct	s_bresenvar
 {
@@ -93,6 +94,7 @@ void			zoommx(int key, t_mx *mx);
 void			colorizemx(t_mx *mx);
 void			change_z(int key, t_mx *mx);
 void			switch_mode(int key, t_mx *mx);
+void			switch_projection(t_mx *mx);
 
 /*
 **	Utils
