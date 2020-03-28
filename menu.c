@@ -20,5 +20,6 @@ void	print_menu(t_mx *mx)
 	mlx_string_put(mx->mlx_ptr, mx->win_ptr, 25, 100, mx->txt_color, "Change color: Space");
 	mlx_string_put(mx->mlx_ptr, mx->win_ptr, 25, 125, mx->txt_color, "Z-Axis: </>");
 	mlx_string_put(mx->mlx_ptr, mx->win_ptr, 25, 150, mx->txt_color, "Dark/Light: D/L");
-	mlx_string_put(mx->mlx_ptr, mx->win_ptr, 25, 175, mx->txt_color, "Exit: Esc");
+	mlx_string_put(mx->mlx_ptr, mx->win_ptr, 25, 175, mx->txt_color, "Switch projection: I");
+	mlx_string_put(mx->mlx_ptr, mx->win_ptr, 25, 200, mx->txt_color, "Exit: Esc");
 }
