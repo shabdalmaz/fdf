@@ -6,7 +6,7 @@
 /*   By: ashabdan <ashabdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 22:40:19 by ashabdan          #+#    #+#             */
-/*   Updated: 2020/03/27 19:26:00 by ashabdan         ###   ########.fr       */
+/*   Updated: 2020/03/08 20:25:30 by ashabdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,13 +79,19 @@ static void	draw(t_mx mx)
 	{
 		mx.crd.z0 *= mx.ac.altitude;
 		mx.crd.z1 *= mx.ac.altitude;
+		mx.color = mx.relief_color;
 	}
+	else
+		mx.color = mx.base_color;
 	mx.crd.x0 *= mx.ac.zoom;
 	mx.crd.x1 *= mx.ac.zoom;
 	mx.crd.y0 *= mx.ac.zoom;
 	mx.crd.y1 *= mx.ac.zoom;
-	iso(&mx.crd.x0, &mx.crd.y0, mx.crd.z0);
-	iso(&mx.crd.x1, &mx.crd.y1, mx.crd.z1);
+	if (mx.iso)
+	{
+		iso(&mx.crd.x0, &mx.crd.y0, mx.crd.z0);
+		iso(&mx.crd.x1, &mx.crd.y1, mx.crd.z1);
+	}
 	mx.crd.x0 += mx.ac.shift_x;
 	mx.crd.x1 += mx.ac.shift_x;
 	mx.crd.y0 += mx.ac.shift_y;

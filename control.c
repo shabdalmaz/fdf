@@ -6,7 +6,7 @@
 /*   By: ashabdan <ashabdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 16:07:26 by ashabdan          #+#    #+#             */
-/*   Updated: 2020/03/27 19:37:03 by ashabdan         ###   ########.fr       */
+/*   Updated: 2020/03/08 17:26:03 by ashabdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	colorizemx(t_mx *mx)
 	int			color[6];
 	static int	index;
 
-	if (index == 6)
+	if (index >= 6)
 		index = 0;
 	color[0] = 0xfad02c;
 	color[1] = 0x145da0;
@@ -49,7 +49,9 @@ void	colorizemx(t_mx *mx)
 	color[3] = 0x21b6a8;
 	color[4] = 0xf8efe4;
 	color[5] = 0x000000;
-	mx->color = color[index];
+	if (mx->relief_color == color[index])
+		index += 1;
+	mx->relief_color = color[index];
 	mlx_clear_window(mx->mlx_ptr, mx->win_ptr);
 	get_picture(mx);
 	index += 1;

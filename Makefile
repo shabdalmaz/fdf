@@ -14,7 +14,7 @@ CC = gcc
 CFLAGS = -Wall -Werror -Wextra -c -I.
 LIB_LINUX = libft/libft.a -L./minilibx_linux -lmlx -L/usr/lib -lXext -lX11 -lm
 LIB_MACOS = libft/libft.a minilibx_macos/libmlx.a -framework OpenGL -framework AppKit
-SRC = control.c  draw.c  error.c  main.c  reader.c  utils.c menu.c
+SRC = control.c  draw.c  error.c  main.c  reader.c  utils.c menu.c projection.c
 OBJECTS = $(SRC:.c=.o)
 NAME = fdf
 

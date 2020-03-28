@@ -6,7 +6,7 @@
 /*   By: ashabdan <ashabdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 14:41:21 by ashabdan          #+#    #+#             */
-/*   Updated: 2020/03/27 19:43:06 by ashabdan         ###   ########.fr       */
+/*   Updated: 2020/03/08 19:33:41 by ashabdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,15 @@ void	mxinit(t_mx *mx)
 {
 	mx->mlx_ptr = mlx_init();
 	mx->win_ptr = mlx_new_window(mx->mlx_ptr, 1280, 720, "FDF");
-	mx->color = 0xffffff;
+	mx->base_color = 0xbada55;
+	mx->relief_color = 0xfad02c;
 	mx->mode = 0;
 	mx->bg_img = "./img/dark.xpm";
+	mx->iso = 0;
 	mx->txt_color = 0xffffff;
-	mx->ac.shift_x = 600;
-	mx->ac.shift_y = 100;
-	mx->ac.zoom = 40;
+	mx->ac.shift_x = 480;
+	mx->ac.shift_y = 150;
+	mx->ac.zoom = 30;
 	mx->ac.altitude = 5;
 	mx->crd.x0 = 0;
 	mx->crd.y0 = 0;
@@ -34,7 +36,7 @@ void	mxinit(t_mx *mx)
 
 void	mxfree(t_mx **mx)
 {
-	int		y;
+	int	y;
 
 	y = 0;
 	while (y < (*mx)->height)
@@ -46,14 +48,14 @@ void	mxfree(t_mx **mx)
 	free(*mx);
 }
 
-int		key_control(int key, t_mx *mx)
+int	key_control(int key, t_mx *mx)
 {
 	if (key == ESC)
 	{
 		mxfree(&mx);
 		exit(EXIT_SUCCESS);
 	}
-	else if (key >= LEFT && key <= UP)
+	else if (key >= LEFT && key <= DOWN)
 		movemx(key, mx);
 	else if (key == PLUS || key == MINUS)
 		zoommx(key, mx);
@@ -65,10 +67,12 @@ int		key_control(int key, t_mx *mx)
 		switch_mode(key, mx);
 	else if (mx->mode == 1 && key == DARK)
 		switch_mode(key, mx);
+	else if (key == PROJ)
+		switch_projection(mx);
 	return (0);
 }
 
-int		main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	t_mx	*mx;
 

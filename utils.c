@@ -6,7 +6,7 @@
 /*   By: ashabdan <ashabdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 22:34:42 by ashabdan          #+#    #+#             */
-/*   Updated: 2020/03/27 19:40:53 by ashabdan         ###   ########.fr       */
+/*   Updated: 2020/03/08 20:15:47 by ashabdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ void	swapcoords(int *a, int *b, int *c, int *d)
 	ft_swap(c, d);
 }
 
-int		wordcounter(const char *s, char c)
+int	wordcounter(const char *s, char c)
 {
-	int		word;
-	int		i;
+	int word;
+	int i;
 
 	i = 0;
 	word = 0;
@@ -48,8 +48,3 @@ int		wordcounter(const char *s, char c)
 	return (i);
 }
 
-void	iso(int *x, int *y, int z)
-{
-	*x = (*x - *y) * cos(1);
-	*y = (*x + *y) * sin(0.5) - z;
-}

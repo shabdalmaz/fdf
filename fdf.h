@@ -64,9 +64,12 @@ typedef struct	s_matrix
 	int			width;
 	int			height;
 	int			color;
+	int			base_color;
+	int			relief_color;
 	char			*bg_img;
 	int			txt_color;
 	int			mode;
+	int			iso;
 
 	void		*mlx_ptr;
 	void		*win_ptr;
@@ -97,7 +100,7 @@ void			switch_mode(int key, t_mx *mx);
 
 void			swapcoords(int *a, int *b, int *c, int *d);
 void			ft_swap(int *a, int *b);
-int				wordcounter(const char *s, char c);
+int			wordcounter(const char *s, char c);
 void			iso(int *x, int *y, int z);
 
 #endif
